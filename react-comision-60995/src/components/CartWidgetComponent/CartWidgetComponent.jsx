@@ -10,12 +10,6 @@ const CartWidgetComponent = () => {
     fontSize: "1.3rem",
     paddingRight: "10px",
   };
-  return (
-    <div>
-      <FontAwesomeIcon style={iconStyles} icon={faCartShopping} />
-      <span style={{ fontSize: "1.3rem" }}>{itemCount}</span>
-    </div>
-  );
 };
 
 export default CartWidgetComponent;

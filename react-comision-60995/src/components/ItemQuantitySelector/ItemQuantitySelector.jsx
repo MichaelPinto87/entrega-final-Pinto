@@ -4,7 +4,10 @@ import { AddItemButton } from "../AddItemButton";
 
 export const ItemQuantitySelector = () => {
   const [quantity, setQuantity] = React.useState(1);
-
+  const buttonStyle = {
+    backgroundColor: "black",
+    borderColor: "black",
+  };
   const handleAddProduct = () => {
     setQuantity(quantity + 1);
   };
@@ -20,10 +23,14 @@ export const ItemQuantitySelector = () => {
   };
 
   return (
-    <div style={{ margin: 2 }}>
-      <Button onClick={handleSubstractProduct}>-</Button>
+    <div style={{ margin: 0 }}>
+      <Button style={buttonStyle} onClick={handleSubstractProduct}>
+        -
+      </Button>
       <input style={{ margin: 10 }} type="number" value={quantity} disabled />
-      <Button onClick={handleAddProduct}>+</Button>
+      <Button style={buttonStyle} onClick={handleAddProduct}>
+        +
+      </Button>
       <AddItemButton
         quantity={quantity}
         handleResetQuantity={handleResetQuantity}

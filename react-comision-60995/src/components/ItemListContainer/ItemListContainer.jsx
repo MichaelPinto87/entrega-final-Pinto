@@ -1,8 +1,14 @@
+// ItemListContainer.jsx
 import Card from "react-bootstrap/Card";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ItemQuantitySelector } from "../ItemQuantitySelector";
+import { AddItemButton } from "../AddItemButton";
+import { CartContext } from "../../context";
+
 export const ItemListContainer = ({ products }) => {
+  const { cartItems, setCartItems } = useContext(CartContext);
+
   return (
     <div
       style={{
@@ -12,16 +18,10 @@ export const ItemListContainer = ({ products }) => {
         justifyContent: "space-around",
       }}
     >
-      {/* <button onClick={handlePseudoSubmit}>Click me</button>
-
-      <input type="text" onChange={(e) => handleName(e)} />
-      <input type="text" onChange={(e) => handleLastName(e)} />
-      <input type="text" onChange={(e) => handleAge(e)} /> */}
-
       {products.map((product) => {
         return (
           <Card key={product.id} style={{ width: "18rem", margin: 20 }}>
-            <Link to={`/item/${product.id}`}>
+            <Link to={/item/${product.id}}>
               <Card.Img variant="top" src={product.thumbnail} />
             </Link>
             <Card.Body>
@@ -29,8 +29,8 @@ export const ItemListContainer = ({ products }) => {
               <Card.Text>{product.description}</Card.Text>
               <Card.Text>Stock: {product.stock}</Card.Text>
               <Card.Text>${product.price}</Card.Text>
-              <ItemQuantitySelector />
             </Card.Body>
+            <ItemQuantitySelector />
           </Card>
         );
       })}

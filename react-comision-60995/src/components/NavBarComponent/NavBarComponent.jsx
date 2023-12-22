@@ -1,10 +1,11 @@
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidgetComponent from "../CartWidgetComponent/CartWidgetComponent";
-
 import { Link } from "react-router-dom";
+import Cart from "../Cart/Cart";
 
 export const NavBarComponent = () => {
   return (
@@ -12,7 +13,10 @@ export const NavBarComponent = () => {
       <Container>
         <Navbar.Brand>
           <Link to={"/"}>
-            <img style={{ width: "5rem" }} src="img/logoplay.jpg"></img>
+            <img
+              style={{ width: "5rem" }}
+              src="../../public/img/logoplay.png"
+            ></img>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +35,7 @@ export const NavBarComponent = () => {
               Productos
             </Link>
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">
+              <NavDropdown.Item>
                 <Link
                   style={{ textDecoration: "none", color: "Black" }}
                   to={"/category/Consolas"}
@@ -39,10 +43,10 @@ export const NavBarComponent = () => {
                   Consolas
                 </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item>
                 <Link
                   style={{ textDecoration: "none", color: "Black" }}
-                  to={"/category/Joysticks"}
+                  to={"/category/Joystick"}
                 >
                   Joysticks
                 </Link>
@@ -50,6 +54,7 @@ export const NavBarComponent = () => {
             </NavDropdown>
           </Nav>
           <CartWidgetComponent />
+          <Cart />
         </Navbar.Collapse>
       </Container>
     </Navbar>
